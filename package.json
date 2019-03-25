@@ -1,13 +1,13 @@
 {
     "name": "trading-vue-101",
     "version": "1.0.0",
-    "description": "",
+    "description": "Example project for trading-vue-js",
     "main": "src/main.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "webpack-dev-server --config webpack/dev.config.js --mode development --progress --hot"
     },
-    "author": "",
+    "author": "C451",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.3.4",
@@ -26,7 +26,6 @@
         "webpack-dev-server": "^3.2.1"
     },
     "dependencies": {
-        "arrayslicer": "^1.2.3",
         "trading-vue-js": "^0.1.7",
         "vue": "^2.6.8",
         "vuetrend": "^0.3.2"
