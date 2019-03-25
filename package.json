@@ -1,0 +1,34 @@
+{
+    "name": "trading-vue-101",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack-dev-server --config webpack/dev.config.js --mode development --progress --hot"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
+        "babel-loader": "^8.0.5",
+        "css-loader": "^2.1.1",
+        "html-webpack-plugin": "^3.2.0",
+        "request": "^2.88.0",
+        "tulind": "^0.8.15",
+        "uglifyjs-webpack-plugin": "^2.1.2",
+        "vue-loader": "^15.7.0",
+        "vue-style-loader": "^4.1.2",
+        "vue-template-compiler": "^2.6.8",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.2.3",
+        "webpack-dev-server": "^3.2.1"
+    },
+    "dependencies": {
+        "arrayslicer": "^1.2.3",
+        "trading-vue-js": "^0.1.7",
+        "vue": "^2.6.8",
+        "vuetrend": "^0.3.2"
+    }
+}
