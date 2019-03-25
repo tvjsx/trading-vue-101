@@ -1,4 +1,4 @@
-## Example project for **Getting started** guide.
+## Example project for **Getting Started** guide.
 
 Install:
 
