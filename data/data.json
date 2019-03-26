@@ -67215,7 +67215,15 @@
                 ]
             ],
             "settings": {}
-        }
+        },
+	{
+	    "name": "GRIN, your first overlay",
+	    "type": "GRIN",
+	    "data": [],
+	    "settings": {
+	    	"z-index": 10
+            }
+	}
     ],
     "offchart": [
         {

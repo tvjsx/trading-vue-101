@@ -2,12 +2,15 @@
 // Grin
 
 // Adds all necessary stuff for you.
-import Overlay from './overlay.js'
+import { Overlay } from 'trading-vue-js'
 
 export default {
     name: 'Grin',
     mixins: [Overlay],
     methods: {
+        meta_info() {
+            return { author: 'C451', version: '1.0.0' }
+        },
         // Here goes your code. You are provided with:
         // { All stuff is reactive }
         // $props.layout -> positions of all chart elements +
@@ -26,8 +29,9 @@ export default {
         draw(ctx) {
             const l = this.$props.layout
             const c = { x : l.width / 2, y : l.height / 2 }
-            ctx.lineWidth = 3
-            ctx.strokeStyle = ctx.fillStyle = 'yellow'
+            ctx.lineWidth = 1
+            ctx.strokeStyle = 'gray'
+            ctx.fillStyle = 'ffea03'
             ctx.beginPath()
             ctx.arc(c.x, c.y, 50, 0, Math.PI * 2, true) // Outer circle
             ctx.fill()
@@ -53,7 +57,8 @@ export default {
         // indicator (let's say EMA),
         // just create a new overlay with the same type:
         // e.g. use_for() { return ['EMA'] }.
-        use_for() { return ['GRIN'] }
+        use_for() { return ['GRIN'] },
+        data_colors() { return ['yellow'] }
     },
     data() {
         // Define internal setting & constants here

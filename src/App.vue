@@ -1,5 +1,4 @@
 <template>
-
 <!-- TradingVueJs 101 (example from 'Getting Started' ) -->
 
 <trading-vue :data="chart" :width="this.width" :height="this.height"
@@ -38,7 +37,7 @@ export default {
                 colorGrid: '#eee',
                 colorText: '#333',
             }
-        };
+        }
     }
-};
+}
 </script>
