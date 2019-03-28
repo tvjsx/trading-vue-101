@@ -7,8 +7,9 @@ const fs = require('fs')
 
 const write_to = './data/data.json'
 
+const len = 420
 const t1 = Math.floor(new Date().getTime() / 1000)
-const t0 = t1 - 3600 * 4200
+const t0 = t1 - 3600 * len
 
 // Hey Coingy, we will borrow some data, ok?
 const mrk = 'BITF/BTC/USD'
@@ -58,6 +59,20 @@ async function deal_with_it(data) {
                 type: "EMA",
                 data: await make_ema(data, 43),
                 settings: {}
+            },
+            {
+        	    name: "GRIN, your first overlay",
+        	    type: "GRIN",
+        	    data: [],
+        	    settings: {
+                    "z-index": 10
+                }
+            },
+            {
+                name: "Trades",
+                type: "PerfectTrades",
+                data: await trade_like_god(data),
+                settings: {}
             }
         ],
         offchart: [
@@ -95,6 +110,28 @@ async function make_rsi(data, len) {
         })
     })
 }
+async function trade_like_god(data, len) {
+    let trades = []
+    let entry = 0
+    let last = [0, 0]
+    return new Promise(rs => {
+        for (var p of data) {
+            if (Math.random() < 0.5 && last[1] === 0) {
+                entry = (p[2] -  p[3]) * Math.random() + p[3]
+                last = [p[0], 1, entry]
+                trades.push(last)
+            }
+            if (Math.random() < 0.1 && last[1] === 1) {
+                let sell = (p[2] -  p[3]) * Math.random() + p[3]
+                if (sell > entry) {
+                    last = [p[0], 0, sell]
+                    trades.push(last)
+                }
+            }
+        }
+        rs(trades)
+    })
+}
 
 // Merge backwards
 function merge(vec1, vec2) {
@@ -112,5 +149,5 @@ function save(data) {
 
     fs.writeFileSync(write_to, JSON.stringify(data,null,4))
 
-    console.log('Data secured (420 points)')
+    console.log(`Data secured (${len} points)`)
 }
