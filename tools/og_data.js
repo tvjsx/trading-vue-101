@@ -72,7 +72,9 @@ async function deal_with_it(data) {
                 name: "Trades",
                 type: "PerfectTrades",
                 data: await trade_like_god(data),
-                settings: {}
+                settings: {
+                    "z-index": 5
+                }
             }
         ],
         offchart: [
@@ -120,12 +122,17 @@ async function trade_like_god(data, len) {
                 entry = (p[2] -  p[3]) * Math.random() + p[3]
                 last = [p[0], 1, entry]
                 trades.push(last)
+                continue
             }
             if (Math.random() < 0.1 && last[1] === 1) {
                 let sell = (p[2] -  p[3]) * Math.random() + p[3]
                 if (sell > entry) {
                     last = [p[0], 0, sell]
                     trades.push(last)
+                }
+                if (p[3] / entry < 0.999) {
+                    trades.pop()
+                    last = [0,0]
                 }
             }
         }
